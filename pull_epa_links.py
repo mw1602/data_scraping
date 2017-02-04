@@ -5,9 +5,6 @@ import frogress
 
 PAGEPATH = 'https://cdxnodengn.epa.gov'
 
-def download(url):
-    urllib.request.urlretrieve(url, url.split('/').pop())
-
 def get_html(url):
     with urllib.request.urlopen(url) as response:
         return response.read()
@@ -35,9 +32,6 @@ if __name__ == "__main__":
 
     links_file = 'paths.txt';
     domain_file = 'url.txt';
-    #
-    # with open(domain_file, 'w') as df:
-    #     df.write(PAGEPATH)
 
     for linkset in frogress.bar(get_allllll_the_things()):
         with open(links_file, 'a') as lf:
